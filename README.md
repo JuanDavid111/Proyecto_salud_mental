@@ -1,6 +1,10 @@
 # Proyecto_salud_mental
 
-## Descripcion general del proyecto Y puntos claves centrales 
+## Descripcion general del proyecto 
+
+Nuestro proyecto busca sembrar conciencia sobre los problemas de salud mental, que se han vuelto más comunes en la actualidad. Nos proponemos presentar de manera gráfica y analítica cómo ciertos factores pueden afectar la salud mental, tales como la edad, el país de residencia, y hábitos de sueño. A través de este enfoque, esperamos brindar una comprensión más profunda y contribuir a un mayor conocimiento y sensibilización sobre la importancia de cuidar la salud mental.
+
+## Puntos centrales 
 
 * Edades en las que hay peor salud mental 
 Rangos 
