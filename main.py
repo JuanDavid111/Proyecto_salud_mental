@@ -1,4 +1,5 @@
 import pandas as pd
+from functions import severidad_de_problemas_mentales
 
 '''Ruta de el data set'''
 file_data_path = './data/mental_health_dataset.csv'
@@ -7,4 +8,4 @@ file_data_path = './data/mental_health_dataset.csv'
 data_health = pd.read_csv(file_data_path,sep=',')
 
 
-print(data_health.head(10))
+

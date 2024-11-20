@@ -1,0 +1,2 @@
+from severidad_de_problemas_mentales import severidad_de_problemas_mentales
+from terapia_de_personas_con_problemas_mentales import terapia_de_personas_con_problemas_mentales
