@@ -3,4 +3,5 @@ from .terapia_de_personas_con_problemas_mentales import terapia_de_personas_con_
 from .salud_mental_por_edad import salud_mental_edades
 from .salud_mental_genero import salud_mental_genero
 from .salud_mental_por_nivel_de_estres import salud_mental_por_nivel_de_estres
+from .salud_mental_por_pais import salud_mental_por_pais, top_5_paises_salud_mental
 

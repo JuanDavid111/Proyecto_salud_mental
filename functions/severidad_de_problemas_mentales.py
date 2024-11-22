@@ -9,7 +9,7 @@ def severidad_de_problemas_mentales( data_health: pd.DataFrame, query_reporte_pr
     
     '''Grafica de la severdad de los problemas mentales de las personas, con un query de si la persona reporto problemas mentales o no'''
     grafica_severidad_de_problemas_mentales = px.pie(severidad_de_problemas_mentales.query(f"Mental_Health_Condition == '{query_reporte_problemas_mentales}'"),values="Count_Severity", names="Severity", hole=.2, title="Severidad de los problemas mentales de las personas")
-    texto_analisis = ""
+    texto_analisis = "La gráfica de pastel muestra que más de la mitad (51.8%) de las personas no presentan problemas mentales, mientras que el 16.9% tiene problemas de baja severidad, el 16.5% de severidad media y el 14.8% de alta severidad. Esto indica que, si bien la mayoría no tiene problemas mentales o son leves, una proporción importante (alrededor del 31%) experimenta dificultades de severidad media a alta."
     return (grafica_severidad_de_problemas_mentales, texto_analisis)
    
 

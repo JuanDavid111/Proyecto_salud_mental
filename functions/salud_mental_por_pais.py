@@ -34,7 +34,8 @@ def top_5_paises_salud_mental(df: pd.DataFrame) -> tuple:
 
     count_paises_yes = filtro['Country'].value_counts()
 
-    count_paises_yes.head()
+    fig = count_paises_yes.head(5).plot(kind='bar',x='Country', y='Cantidad de personas', title='10 paises con más reportes de problemas de salud mental')
 
+    fig.figure.show()
     
     
