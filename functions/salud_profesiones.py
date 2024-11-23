@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import plotly.express as px
 
 
 def top_10_profesiones_peor_salud_mental (dataset: pd.DataFrame) -> tuple :
@@ -11,8 +12,6 @@ def top_10_profesiones_peor_salud_mental (dataset: pd.DataFrame) -> tuple :
     :param dataset: DataFrame con las columnas necesarias, incluyendo 'Occupation' y 'Severity'.
     """
     # Listar todas las profesiones únicas en el dataset
-    all_professions = dataset['Occupation'].unique()
-    print(f"Estas son las profesiones en el dataset:\n{', '.join(all_professions)}\n")
     
     # Filtrar datos con 'Severity' == 'High'
     severe_cases = dataset[dataset['Severity'] == 'High']
@@ -22,8 +21,7 @@ def top_10_profesiones_peor_salud_mental (dataset: pd.DataFrame) -> tuple :
     
     # Verificar si hay menos de 10 profesiones con casos graves
     num_professions = min(len(severe_by_profession), 10)
-    print(f"Analizando las {num_professions} profesiones con peor salud mental:\n")
-    print(severe_by_profession.head(num_professions))
+ 
 
     # Filtrar las 10 peores profesiones (o menos si no hay suficientes)
     worst_professions = severe_by_profession.head(num_professions)
@@ -37,13 +35,13 @@ def top_10_profesiones_peor_salud_mental (dataset: pd.DataFrame) -> tuple :
     plt.xticks(rotation=45, ha='right')
     plt.grid(axis='y', linestyle='--', alpha=0.5)
     plt.tight_layout()
+    plt.savefig('./assets/top_10_grafica.png')
+    grafica = plt
     
-    grafica_top_10 = plt.figure()
-    
-    return(grafica_top_10, '')
+    return(grafica, '')
 
 
-def analisis_por_profesion(dataset: pd.DataFrame, profession ) -> tuple :
+def analisis_por_profesion(dataset: pd.DataFrame, query_profession ) -> tuple :
     """
     Analiza una profesión específica y, en el mismo proceso, calcula estadísticas
     de todas las profesiones para relacionarlas con la salud mental, nivel de estrés 
@@ -69,18 +67,20 @@ def analisis_por_profesion(dataset: pd.DataFrame, profession ) -> tuple :
     # print("\n")
 
     # Verificar si la profesión especificada está en el dataset
-    if profession not in profession_stats['Occupation'].values:
-        print(f"No se encontraron datos para la profesión: {profession}")
+    if query_profession not in profession_stats['Occupation'].values:
+        print(f"No se encontraron datos para la profesión: {query_profession}")
         return
 
     # Obtener los datos específicos de la profesión
-    profession_data = profession_stats[profession_stats['Occupation'] == profession].iloc[0]
+    profession_data = profession_stats[profession_stats['Occupation'] == query_profession].iloc[0]
 
     # Extraer valores relevantes
     severe_count = profession_data['Severe_Count']
     avg_sleep = profession_data['Sleep_Hours']
     stress_distribution = profession_data['Stress_Level']
 
+
+    fig = px.bar(stress_distribution,x='Severity', )
     # Imprimir estadísticas específicas de la profesión
     # print(f"Análisis para la profesión: {profession}\n")
     # print(f"Casos graves ('High') de salud mental: {severe_count}")
@@ -91,9 +91,12 @@ def analisis_por_profesion(dataset: pd.DataFrame, profession ) -> tuple :
     # Gráfico de barras para la distribución de estrés
     plt.figure(figsize=(8, 5))
     pd.Series(stress_distribution).plot(kind='bar', color='skyblue', alpha=0.8)
-    plt.title(f'Niveles de Estrés en {profession}')
+    plt.title(f'Niveles de Estrés en {query_profession}')
     plt.xlabel('Nivel de Estrés')
     plt.ylabel('Cantidad de Personas')
     plt.grid(axis='y', linestyle='--', alpha=0.5)
     plt.tight_layout()
-    return (plt.figure(), '')
+
+    plt.savefig('./assets/analisis_por_profesion.png')
+
+    return ('./assets/analisis_por_profesion.png', '')

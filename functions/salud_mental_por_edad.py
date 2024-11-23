@@ -28,4 +28,7 @@ def salud_mental_edades(dataset: pd.DataFrame) -> tuple:
     
     texto_analisis = "Al analizar y comparar entre tres rango de edades que son los aduntos jóvenes; los adultos de mediana edad y los adultos mayores se puede visualizar que los adultos mayores suelen tener mayores problemas de salud mental y en segundo lugar los adultos jóvenes. El estrés laboral, las responsabilidades familiares, y la planificación financiera pueden ser factores significativos que contribuyen a los problemas de salud mental en los rangos de edad más altos."
 
-    return (plt.figure(), texto_analisis)
+    plt.savefig('./assets/salud_mental_edades_grafica.png')
+
+
+    return ('./assets/salud_mental_edades_grafica.png', texto_analisis)

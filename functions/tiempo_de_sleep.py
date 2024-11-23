@@ -30,7 +30,9 @@ def nivel_de_estres_tiempo_sueño(dataset:pd.DataFrame) -> tuple:
 
     texto_analisis = 'La gráfica sugiere que dormir 7 o más horas puede estar asociado con menores niveles de estrés bajo, pero no necesariamente reduce los niveles de estrés alto o medio. La calidad del sueño y otros factores de estilo de vida también juegan un papel crucial en los niveles de estrés.'
 
-    return (fig, texto_analisis )
+    fig.savefig('./assets/nivel_de_estres_tiempo_sueño.png')
+
+    return ('./assets/nivel_de_estres_tiempo_sueño.png', texto_analisis )
 
 def salud_mental_tiempo_sueño (dataset:pd.DataFrame) -> tuple:
        # Separar el dataset en dos grupos basados en las horas de sueño
@@ -61,4 +63,6 @@ def salud_mental_tiempo_sueño (dataset:pd.DataFrame) -> tuple:
 
     texto_analisis = 'La gráfica muestra que la duración del sueño, ya sea menos de 7 horas o 7 horas o más, no parece ser el único factor determinante en la presencia de problemas de salud mental, ya que ambos grupos presentan cifras similares'
 
-    return(fig, texto_analisis )
+    fig.savefig('./assets/salud_mental_tiempo_sueño.png')
+
+    return('./assets/salud_mental_tiempo_sueño.png', texto_analisis )
