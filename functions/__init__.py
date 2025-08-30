@@ -1,0 +1,8 @@
+from .severidad_de_problemas_mentales import severidad_de_problemas_mentales
+from .terapia_de_personas_con_problemas_mentales import terapia_de_personas_con_problemas_mentales
+from .salud_mental_por_edad import salud_mental_edades
+from .salud_mental_genero import salud_mental_genero
+from .salud_mental_por_nivel_de_estres import salud_mental_por_nivel_de_estres
+from .salud_mental_por_pais import salud_mental_por_pais, top_5_paises_salud_mental
+from .tiempo_de_sleep import nivel_de_estres_tiempo_sueño, salud_mental_tiempo_sueño
+from .salud_profesiones import analisis_por_profesion,top_10_profesiones_peor_salud_mental
